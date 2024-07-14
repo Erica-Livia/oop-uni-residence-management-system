@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Residence Management System</title>
+    <script defer src="index.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6 text-center">University Residence Management System</h1>
+
+    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Add Dorm Room</h2>
+        <form id="dormRoomForm" onsubmit="addDormRoom(); return false;" class="space-y-4">
+            <div>
+                <label for="dormName" class="block text-sm font-medium text-gray-700">Name:</label>
+                <input type="text" id="dormName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <div>
+                <label for="dormAddress" class="block text-sm font-medium text-gray-700">Address:</label>
+                <input type="text" id="dormAddress" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <div>
+                <label for="dormSize" class="block text-sm font-medium text-gray-700">Size (sq ft):</label>
+                <input type="number" id="dormSize" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Add Dorm Room</button>
+        </form>
+        <div id="dormRoomList" class="mt-4"></div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Add Apartment</h2>
+        <form id="apartmentForm" onsubmit="addApartment(); return false;" class="space-y-4">
+            <div>
+                <label for="aptName" class="block text-sm font-medium text-gray-700">Name:</label>
+                <input type="text" id="aptName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <div>
+                <label for="aptAddress" class="block text-sm font-medium text-gray-700">Address:</label>
+                <input type="text" id="aptAddress" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <div>
+                <label for="aptBedrooms" class="block text-sm font-medium text-gray-700">Number of Bedrooms:</label>
+                <input type="number" id="aptBedrooms" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Add Apartment</button>
+        </form>
+        <div id="apartmentList" class="mt-4"></div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Add Student</h2>
+        <form id="studentForm" onsubmit="addStudent(); return false;" class="space-y-4">
+            <div>
+                <label for="studentName" class="block text-sm font-medium text-gray-700">Name:</label>
+                <input type="text" id="studentName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <div>
+                <label for="studentID" class="block text-sm font-medium text-gray-700">Student ID:</label>
+                <input type="text" id="studentID" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <div>
+                <label for="studentGender" class="block text-sm font-medium text-gray-700">Gender:</label>
+                <input type="text" id="studentGender" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Add Student</button>
+        </form>
+        <div id="studentList" class="mt-4"></div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Assign Residence to Student</h2>
+        <form id="assignResidenceForm" onsubmit="assignResidence(); return false;" class="space-y-4">
+            <div>
+                <label for="assignStudentName" class="block text-sm font-medium text-gray-700">Student Name:</label>
+                <input type="text" id="assignStudentName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <div>
+                <label for="assignResidenceName" class="block text-sm font-medium text-gray-700">Residence Name:</label>
+                <input type="text" id="assignResidenceName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Assign Residence</button>
+        </form>
+        <div id="assignedResidenceList" class="mt-4"></div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Add Maintenance Request</h2>
+        <form id="maintenanceRequestForm" onsubmit="addMaintenanceRequest(); return false;" class="space-y-4">
+            <div>
+                <label for="requestDescription" class="block text-sm font-medium text-gray-700">Description:</label>
+                <input type="text" id="requestDescription" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <div>
+                <label for="requestStudentName" class="block text-sm font-medium text-gray-700">Student Name:</label>
+                <input type="text" id="requestStudentName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Add Maintenance Request</button>
+        </form>
+        <div id="maintenanceRequestList" class="mt-4"></div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Add Employee</h2>
+        <form id="employeeForm" onsubmit="addEmployee(); return false;" class="space-y-4">
+            <div>
+                <label for="employeeName" class="block text-sm font-medium text-gray-700">Name:</label>
+                <input type="text" id="employeeName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <div>
+                <label for="employeeID" class="block text-sm font-medium text-gray-700">Employee ID:</label>
+                <input type="text" id="employeeID" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Add Employee</button>
+        </form>
+        <div id="employeeList" class="mt-4"></div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Assign Employee to Maintenance Request</h2>
+        <form id="assignEmployeeForm" onsubmit="assignEmployee(); return false;" class="space-y-4">
+            <div>
+                <label for="assignRequestDescription" class="block text-sm font-medium text-gray-700">Request Description:</label>
+                <input type="text" id="assignRequestDescription" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <div>
+                <label for="assignEmployeeName" class="block text-sm font-medium text-gray-700">Employee Name:</label>
+                <input type="text" id="assignEmployeeName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Assign Employee</button>
+        </form>
+        <div id="assignedEmployeeList" class="mt-4"></div>
+    </div>
+</div>
+</body>
+</html>
